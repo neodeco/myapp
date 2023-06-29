@@ -16,12 +16,13 @@ import java.util.List;
 
 @Data
 @Builder
-@NoArgsConstructor(force = true)
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "myapp_users")
-public class UserEntity implements Serializable, UserDetails {
-    @Id @GeneratedValue
+public class UserEntity implements UserDetails {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String firstName;
     private String lastName;
@@ -31,6 +32,7 @@ public class UserEntity implements Serializable, UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

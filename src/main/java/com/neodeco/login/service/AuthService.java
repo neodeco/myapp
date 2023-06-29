@@ -6,5 +6,6 @@ import com.neodeco.login.model.RegisterRequest;
 
 public interface AuthService {
     AuthResponse authenticate(AuthRequest request);
+
     AuthResponse register(RegisterRequest request);
 }

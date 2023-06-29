@@ -8,7 +8,6 @@ import com.neodeco.login.model.AuthResponse;
 import com.neodeco.login.model.RegisterRequest;
 import com.neodeco.login.repository.UserRepository;
 import com.neodeco.login.service.AuthService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
