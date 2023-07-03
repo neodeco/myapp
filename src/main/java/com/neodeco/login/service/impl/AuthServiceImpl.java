@@ -43,8 +43,9 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponse register(RegisterRequest request) {
         var user = UserEntity.builder()
-                .userName(request.getUserName())
-                .firstName(request.getFirstName())
+                .username(request.getUserName())
+                .firstname(request.getFirstName())
+                .lastname(request.getLastName())
                 .email(request.getEmail())
                 .password(encoder.encode(request.getPassword()))
                 .role(Role.USER)

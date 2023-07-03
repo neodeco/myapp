@@ -10,7 +10,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,9 +23,9 @@ public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue
     private Integer id;
-    private String firstName;
-    private String lastName;
-    private String userName;
+    private String firstname;
+    private String lastname;
+    private String username;
     private String email;
     private String password;
 

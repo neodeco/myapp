@@ -1,6 +1,5 @@
 package com.neodeco.login.config;
 
-import org.apache.tomcat.util.net.DispatchType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import static org.springframework.web.bind.annotation.RequestMethod.OPTIONS;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Configuration
 @EnableWebSecurity
@@ -34,15 +30,7 @@ public class SecurityConfig extends WebSecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers(String.valueOf(OPTIONS), "/")
-                .permitAll()
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers(String.valueOf(POST),"/register")
-                .permitAll()
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/auth/**")
+                .requestMatchers("/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -56,18 +44,3 @@ public class SecurityConfig extends WebSecurityConfiguration {
         return http.build();
     }
 }
-
-/**
- * Spring Security 6.1
- * .csrf(AbstractHttpConfigurer::disable)
- * .authorizeHttpRequests( requestMatcherRegistry ->
- * requestMatcherRegistry
- * .dispatcherTypeMatchers(OPTIONS, DispatcherType.valueOf("/"))
- * .permitAll()
- * .requestMatchers( new AntPathRequestMatcher( "/api/v1/auth/**" ))
- * .authenticated() )
- * .sessionManagement( (session) -> session
- * .sessionCreationPolicy(SessionCreationPolicy.STATELESS) )
- * .authenticationProvider(authProvider)
- * .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
- */
