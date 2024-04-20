@@ -1,5 +1,6 @@
 package com.neodeco.login.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.neodeco.login.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "myapp_users")
+@Table(name = "user_table", schema = "myapp")
 public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue

@@ -1,5 +1,6 @@
 package com.neodeco.login.app;
 
+import com.neodeco.login.LoginApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
